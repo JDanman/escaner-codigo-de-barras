@@ -2,13 +2,14 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 
 @Component({
-  selector: 'page-home',
-  templateUrl: 'home.html'
+  selector: 'page-historial',
+  templateUrl: 'historial.html'
 })
-export class HomePage {
+export class HistorialPage {
 
   constructor(public navCtrl: NavController) {
 
   }
+
 
 }
