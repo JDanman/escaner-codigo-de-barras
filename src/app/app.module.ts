@@ -8,6 +8,7 @@ import { MyApp } from './app.component';
 import { TabsPage,
           ScanPage,
           HistorialPage } from '../pages/index.paginas';
+import { Camera } from '@ionic-native/camera';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { TabsPage,
   ],
   providers: [
     StatusBar,
+    Camera,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
