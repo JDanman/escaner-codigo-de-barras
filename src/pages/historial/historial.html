@@ -11,4 +11,13 @@
     <p>
       Aqui podras ver tu historial próximamente
     </p>
+
+    <ion-list no-lines>
+      <button ion-item *ngFor="let scan of historial"; i=index
+        (click)="visitar(scan)">
+        <h2> {{ scan.info }} </h2>
+        <p> {{ scan.tipo }} </p>
+      </button>
+    </ion-list>
+
   </ion-content>

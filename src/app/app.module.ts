@@ -8,7 +8,11 @@ import { MyApp } from './app.component';
 import { TabsPage,
           ScanPage,
           HistorialPage } from '../pages/index.paginas';
+//Plugins
 import { Camera } from '@ionic-native/camera';
+import { BarcodeScanner } from '@ionic-native/barcode-scanner';
+import { HistorialProvider } from '../providers/historial/historial';
+import { InAppBrowser} from '@ionic-native/in-app-browser';
 
 @NgModule({
   declarations: [
@@ -31,8 +35,11 @@ import { Camera } from '@ionic-native/camera';
   providers: [
     StatusBar,
     Camera,
+    BarcodeScanner,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    HistorialProvider,
+    InAppBrowser
   ]
 })
 export class AppModule {}
