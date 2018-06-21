@@ -7,30 +7,42 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { MyApp } from './app.component';
 import { TabsPage,
           ScanPage,
-          HistorialPage } from '../pages/index.paginas';
+          HistorialPage, 
+          MapaPage
+        } from '../pages/index.paginas';
+//Provideres
+import { HistorialProvider } from '../providers/historial/historial';
 //Plugins
 import { Camera } from '@ionic-native/camera';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
-import { HistorialProvider } from '../providers/historial/historial';
 import { InAppBrowser} from '@ionic-native/in-app-browser';
+import { Contacts } from '@ionic-native/contacts';
+// Manejo de Mapas con Google Maps
+import { AgmCoreModule } from '@agm/core';
 
 @NgModule({
   declarations: [
     MyApp,
     TabsPage,
     ScanPage,
-    HistorialPage
+    HistorialPage,
+    MapaPage
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    //Uso del API por Llave
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyA7Y32K2HAickIu_c3vSe-t2zV92s0yo4M'
+    })
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
     TabsPage,
     ScanPage,
-    HistorialPage
+    HistorialPage,
+    MapaPage
   ],
   providers: [
     StatusBar,
@@ -39,7 +51,8 @@ import { InAppBrowser} from '@ionic-native/in-app-browser';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     HistorialProvider,
-    InAppBrowser
+    InAppBrowser,
+    Contacts
   ]
 })
 export class AppModule {}

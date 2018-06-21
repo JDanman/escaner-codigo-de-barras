@@ -7,12 +7,9 @@ import { ScanPage, HistorialPage } from '../index.paginas';
 })
 export class TabsPage {
 
-    scan: any;
-    historial: any;
+    scan:any = ScanPage;
+    historial:any = HistorialPage;
 
-  constructor( ) {
-    this.scan = ScanPage;
-    this.historial = HistorialPage;
-  }
+  constructor() {}
 
 }

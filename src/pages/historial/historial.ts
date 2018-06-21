@@ -1,5 +1,7 @@
+//Plug-ins de Ionic
 import { Component } from '@angular/core';
-import { NavController, ToastController } from 'ionic-angular';
+
+//Referencias a otras página internas de la aplicación
 import { HistorialProvider } from '../../providers/historial/historial';
 import { ScanData } from '../../models/scan-model';
 
@@ -10,10 +12,7 @@ import { ScanData } from '../../models/scan-model';
 export class HistorialPage {
   historial: ScanData[] = [];
 
-  constructor(public navCtrl: NavController,
-    private _historial: HistorialProvider,
-    private toastCtrl: ToastController) {
-
+  constructor(private _historial: HistorialProvider) {
 
   }
 
@@ -21,19 +20,8 @@ export class HistorialPage {
     this.historial = this._historial.cargarHistorial();
   }
 
-  visitar(scan: ScanData) {
-    if (scan.tipo == "http") {
-      this.presentToast("Dirigir a: " + scan.info);
-    }
-  }
-
-  presentToast(mensaje: string) {
-    const toast = this.toastCtrl.create({
-      message: mensaje,
-      position: 'middle',
-      duration: 3000
-    });
-    toast.present();
+  visitar(indice: number) {
+    this._historial.abrirScan(indice);
   }
 
 }

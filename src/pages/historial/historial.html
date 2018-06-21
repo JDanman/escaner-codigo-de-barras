@@ -1,23 +1,22 @@
 <ion-header>
-    <ion-navbar color="primary">
-      <ion-title>
-        Historial
-      </ion-title>
-    </ion-navbar>
-  </ion-header>
-  
-  <ion-content padding>
-    Historial
-    <p>
-      Aqui podras ver tu historial próximamente
-    </p>
+  <ion-navbar color="primary">
+    <ion-title> Historial </ion-title>
+  </ion-navbar>
+</ion-header>
 
-    <ion-list no-lines>
-      <button ion-item *ngFor="let scan of historial"; i=index
-        (click)="visitar(scan)">
-        <h2> {{ scan.info }} </h2>
-        <p> {{ scan.tipo }} </p>
-      </button>
-    </ion-list>
+<ion-content padding>
 
-  </ion-content>
+  <ion-list no-lines>
+    <button 
+      ion-item
+      *ngFor = "let scan of historial; let i = index" (click) = "visitar(i)">
+
+      {{ scan.info }}
+      <p>
+        {{ scan.tipo }}
+      </p>
+
+    </button>
+  </ion-list>
+
+</ion-content>
