@@ -5,6 +5,7 @@ import { Injectable } from '@angular/core';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { Contacts, Contact, ContactField, ContactName } from '@ionic-native/contacts';
 import { ModalController, Platform, ToastController } from "ionic-angular";
+//import { EmailComposer } from '@ionic-native/email-composer';
 //Referencias a otras página de la aplicación
 import { ScanData } from '../../models/scan-model';
 import { MapaPage } from "../../pages/index.paginas";
@@ -51,9 +52,7 @@ export class HistorialProvider {
         this.crear_contacto(ScanData.info);
         break;
       case "email": //Enlace de manejo de correo
-
-      
-        //Funcionamiento de correo aqui
+        this.crear_correo(ScanData.info);
         break;
       default:
         console.error("Tipo de enlace desconocido");
@@ -140,5 +139,43 @@ export class HistorialProvider {
 
     return fields;
   };
+
+  private crear_correo(texto: string) {
+    //Manejo de Datos (Obtenidos por ScanData)
+    var contenido=[];
+    //Separación de los Elementos del QR
+    contenido= texto.split (';');
+    //Variables para el contenido del correo
+    //var start_index = 0
+    //var number_of_elements_to_remove = 3;
+    var noMATMSG_TO;
+    //var noTO;
+    var noSUB;
+    var noBODY;
+
+    //Formando el Correo
+    contenido.forEach(element => {
+      //Destinatario
+      if (element.includes('MATMSG:')){
+        noMATMSG_TO= element.replace('MATMSG:', '');      
+        noMATMSG_TO= noMATMSG_TO.replace('TO:', '');      
+      }
+      //Motivo
+      if (element.includes("SUB:")){
+        noSUB=element.replace('SUB:', '');
+      }
+      //Texto del Correo
+      if (element.includes("BODY:")){
+       noBODY= element.replace('BODY:', '');
+      }
+    });
+
+    //Correo Compuesto y listo
+    this.zelda.create(
+      'mailto:' + noMATMSG_TO.trim() +
+      '?subject=' + noSUB.trim() + 
+      '&body=' + noBODY.trim()+'', "_system"
+    );
+  }
 
 }

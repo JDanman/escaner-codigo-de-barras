@@ -43,6 +43,7 @@ END:VCARD` );
 
     this.escaner.scan().then(barcodeData => {
       console.log('Barcode data', barcodeData);
+      this._historialProvider.agregar_historial(barcodeData.text);
     }).catch(err => {
       console.log('Error', err);
       this.presentToast('Error: ' + err);

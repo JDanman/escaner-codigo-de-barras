@@ -26,6 +26,7 @@
     "@ionic-native/camera": "^4.7.0",
     "@ionic-native/contacts": "^4.7.0",
     "@ionic-native/core": "^4.7.0",
+    "@ionic-native/email-composer": "^4.7.0",
     "@ionic-native/in-app-browser": "^4.7.0",
     "@ionic-native/splash-screen": "4.7.0",
     "@ionic-native/status-bar": "4.7.0",
@@ -34,6 +35,7 @@
     "cordova-plugin-camera": "^4.0.3",
     "cordova-plugin-contacts": "^3.0.1",
     "cordova-plugin-device": "^2.0.2",
+    "cordova-plugin-email-composer": "^0.8.15",
     "cordova-plugin-inappbrowser": "^3.0.0",
     "cordova-plugin-ionic-keyboard": "^2.0.5",
     "cordova-plugin-ionic-webview": "^1.1.19",
@@ -61,7 +63,8 @@
       "cordova-plugin-ionic-webview": {},
       "cordova-plugin-ionic-keyboard": {},
       "cordova-plugin-inappbrowser": {},
-      "cordova-plugin-contacts": {}
+      "cordova-plugin-contacts": {},
+      "cordova-plugin-email-composer": {}
     },
     "platforms": [
       "android"

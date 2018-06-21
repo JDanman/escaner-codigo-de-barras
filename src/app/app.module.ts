@@ -19,6 +19,8 @@ import { InAppBrowser} from '@ionic-native/in-app-browser';
 import { Contacts } from '@ionic-native/contacts';
 // Manejo de Mapas con Google Maps
 import { AgmCoreModule } from '@agm/core';
+//Correo Electrónico
+//import { EmailComposer } from '@ionic-native/email-composer';
 
 @NgModule({
   declarations: [
@@ -52,7 +54,8 @@ import { AgmCoreModule } from '@agm/core';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     HistorialProvider,
     InAppBrowser,
-    Contacts
+    Contacts,
+    //EmailComposer
   ]
 })
 export class AppModule {}
